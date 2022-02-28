@@ -15,7 +15,7 @@ recognition_service = recognition_service.RecognitionService(storage_service)
 def demo_object_detection():
     '''randomly selects one image to demo object detection'''
     files = storage_service.list_files()
-    images = [file for file in files if file['file_name'].endswith(".jpg")]
+    images = [file for file in files if file['file_name'].endswith(".jpeg")]
     image = random.choice(images)
 
     objects = recognition_service.detect_objects(image['file_name'])

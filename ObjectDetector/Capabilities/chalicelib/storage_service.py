@@ -12,7 +12,7 @@ class StorageService:
     response = self.client.list_objects_v2(Bucket = self.bucket_name)
 
     files = []
-    for content in response['Content']:
+    for content in response['Contents']:
       files.append({
         'location': self.bucket_name,
         'file_name': content['Key'],
