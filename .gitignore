@@ -1,1 +1,4 @@
 .DS_Store
+*/.chalice/
+*/.chalice/deployments/
+*/.chalice/venv/
