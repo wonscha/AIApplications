@@ -59,7 +59,7 @@ const translateImage = async (image) => {
   try {
     // make server call to translate image
     // and return the response
-    const response = await fetch(serverUrl + "/images/" + image["fileId"] + "/tranlsate-text", {
+    const response = await fetch(serverUrl + "/images/" + image["fileId"] + "/translate-text", {
       method: "POST",
       headers: {
         'Accept': 'application/json',

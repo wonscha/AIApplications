@@ -1,3 +1,4 @@
+from urllib import request
 from chalice import Chalice
 from chalicelib import storage_service
 from chalicelib import recognition_service
@@ -17,7 +18,7 @@ recognition_service = recognition_service.RecognitionService(storage_service)
 translation_service = translation_service.TranslationService()
 
 # RESTful endpoints
-@app.route('/images/{image_id}/translated-text', methods=['POST'], cors=True)
+@app.route('/images/{image_id}/translate-text', methods=['POST'], cors=True)
 def translate_image_text(image_id):
     """detects then translates text in the specified image"""
     request_data = json.loads(app.current_request.raw_body)
@@ -25,6 +26,8 @@ def translate_image_text(image_id):
     to_lang = request_data['toLang']
 
     MIN_CONFIDENCE = 80.0
+
+    print(request_data, from_lang, to_lang)
 
     text_lines = recognition_service.detect_text(image_id)
 
